@@ -44,7 +44,7 @@ def gen_payout_report():
         balance_at_payouts = []
         ROI = []
         txids = []
-
+        returnoninvestment = 0
         for payouts in addresses[address]['payouthistory']:
             for x in addresses[address]['balance_history']:
                 balance_at_payout = x.amount
@@ -56,7 +56,8 @@ def gen_payout_report():
             timestamps.append(utils.arkt_to_datetime(payouts.timestamp))
             payoutamounts.append(payouts.amount/info.ARK)
             txids.append(payouts.id)
-            ROI.append((payouts.amount / abs((balance_at_payout - payouts.amount))) * 100)
+            returnoninvestment += (payouts.amount / abs((balance_at_payout - payouts.amount)))
+            ROI.append(returnoninvestment * 100)
         df = DataFrame({'Tx_id': txids, 'Timestamp': timestamps, 'Amount': payoutamounts, 'Balance at payout': balance_at_payouts,
                         'ROI': ROI})
         df_list.append(df)
