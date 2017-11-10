@@ -4,6 +4,8 @@ A simple script using arkdbtools to calculate staking rewards and balance over t
 
 This script connects to an ark-node and creates a report of historical staking rewards and balance over time.
 
+If you have no experience setting up an ark-node, follow this guide: https://github.com/Nijmegen-Consultancy-Group/arkdbtools/blob/master/arkdbtools/readme.md
+
 To set up, first edit the config.py with your connection parameters. If you are querying a node on localhost, there is no need to edit this file.
 
 arkprofitcalculator/config.py
